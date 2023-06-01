@@ -14,14 +14,14 @@
 
         {
             title: "My projects",
-            href: "/myPrgct",
-            isShow :true
+            href:"/projects",
+            isShow:true
         },
 
         {
             title: "Contacts",
             href: "/contacts",  
-            isShow:false,
+            isShow:true,
         },
     ];
 </script>
