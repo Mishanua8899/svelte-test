@@ -32,12 +32,12 @@
         <h1>Учет расходов</h1>
         <form class="form">
             <label for="name">
-                <input type="text" class="name_of_action" placeholder="Введите название" bind:value={name}/>
+                <input type="text" class="input_space" placeholder="Введите название" bind:value={name}/>
             </label>
             <label for="sum">
-                <input type="text" class="summa" placeholder="Введите сумму" bind:value={sum}/>
+                <input type="text" class="input_space" placeholder="Введите сумму" bind:value={sum}/>
             </label>
-            <button class="input_data" on:click={add}>Добавить</button>
+            <button class="input_data" on:click={() => add()}>Добавить</button>
         </form>
         <table class="storage">
             <caption>&dArr;</caption>
@@ -51,7 +51,7 @@
             <tr>
                 <th>{item.Name}</th>
                 <th>{item.Summa}</th>
-                <th><button on:click={remove(index)}>Удалить</button></th>
+                <th><button on:click={() => remove(index)} class="delete_button">Удалить</button></th>
             </tr>
             {/if}
             {/each}
@@ -71,7 +71,6 @@
     main {
         display: flex;
         flex-direction: column;
-        margin-left: 20px;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         width: 100%;
         height: 100%;
@@ -85,7 +84,7 @@
 
     .input_data {
         width: fit-content;
-        border: 1qpx solid black;
+        border: 1px solid black;
         background-color: rgb(0, 204, 0);
         padding: 5px;
         border-radius: 5px;
@@ -100,5 +99,23 @@
 
     .header {
         background-color: rgb(180, 180, 180);
+    }
+
+    .delete_button {
+        background-color: rgb(0, 204, 0);
+        transition: all 0.3s ease;
+        border-radius: 5px;
+        color: white;
+    }
+
+    .delete_button:hover {
+        background-color: rgb(0, 255, 0);
+        transition: all 0.3s ease;
+    }
+
+    .input_space {
+        border: 2px solid black;
+        border-radius: 4px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 </style>
